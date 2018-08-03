@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 3em;">
+  <div class="row">
+    <div class="col-lg-10">
+      <h1>{{ element.headline }}</h1>
+      <div class="float-right" style="padding: 0 0 1em 1em;">
+        <img src="{{ element.pic.url }}" width="340px" class="img-thumbnail"/>
+      </div>
+      <p><em>{{ element.shorttext }}</em></p>
+      <p>{% autoescape off %}{{ element.longtext}}{% endautoescape %}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -13,10 +13,32 @@ Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.flatpages import views as flatpage_views
 from blog import views as blog_views
 
+
 urlpatterns = [
+
+    # Editor / Admin
+    url(r'^summernote/', include('django_summernote.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', blog_views.index)
-]
+
+    # Flatpages
+    url(r'^kontakt/$', flatpage_views.flatpage, {'url': '/kontakt/'},
+        name='kontakt'),
+    url(r'^impressum/$', flatpage_views.flatpage, {'url': '/impressum/'},
+        name='impressum'),
+    url(r'^datenschutz/$', flatpage_views.flatpage, {'url': '/datenschutz/'},
+        name='datenschutz'),
+
+    # Marketing-Elements
+    url(r'^(?P<slug>[\w\-]+)/$', blog_views.marketing_detail,
+        name='marketing_slug_detail'),
+
+
+    # Index
+    url(r'^$', blog_views.index)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
