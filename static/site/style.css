@@ -1,12 +1,19 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+a:link, a:active, a:visited {
+  color: #325472; }
+
+a:hover {
+  color: #021727; }
+
 body {
   padding-top: 3rem;
   padding-bottom: 0rem;
   color: #222;
   font-family: "Imprima", sans-serif;
-  font-size: 100%; }
+  font-size: 100%;
+  height: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Copse", serif;
@@ -68,12 +75,19 @@ p {
 .marketing h1 {
   padding: 0 0 1em 0; }
 
+.mycontainer {
+  min-height: 100%;
+  position: relative; }
+
 .footer {
+  position: absolute;
   padding: 3em 0;
   margin-top: 3em;
   color: #222;
   background: #021727;
-  color: #fff; }
+  color: #fff;
+  height: 7em;
+  width: 100%; }
 
 .footer a {
   color: #d3e4f4 !important; }

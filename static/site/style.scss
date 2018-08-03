@@ -21,12 +21,22 @@ $text_grey: #222;
 $font_ground: "Imprima", sans-serif;
 $font_headline: "Copse", serif;
 
+a:link, a:active, a:visited {
+  color: $blue1;
+}
+
+a:hover {
+  color: $blue3;
+}
+
+
 body {
   padding-top: 3rem;
   padding-bottom: 0rem;
   color: $text_grey;
   font-family: $font_ground;
   font-size: 100%;
+  height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -102,12 +112,20 @@ p {
   padding: 0 0 1em 0;
 }
 
+.mycontainer {
+  min-height:100%;
+  position:relative;
+}
+
 .footer {
+  position: absolute;
   padding: 3em 0;
   margin-top: 3em;
   color: $text_grey;
   background: $blue3;
   color: $white1;
+  height: 7em;
+  width: 100%;
 }
 
 .footer a {
