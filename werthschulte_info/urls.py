@@ -33,6 +33,8 @@ urlpatterns = [
         name='impressum'),
     url(r'^datenschutz/$', flatpage_views.flatpage, {'url': '/datenschutz/'},
         name='datenschutz'),
+    url(r'^pgp-key/$', flatpage_views.flatpage, {'url': '/pgp-key/'},
+        name='pgp-key'),
 
     # Marketing-Elements
     url(r'^(?P<slug>[\w\-]+)/$', blog_views.marketing_detail,
