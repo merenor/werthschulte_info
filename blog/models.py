@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class MarketingElement(models.Model):
@@ -18,6 +19,9 @@ class MarketingElement(models.Model):
     shorttext = models.CharField(max_length=255, default='')
     longtext = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
+
+    def get_absolute_url(self):
+        return reverse('marketing_slug_detail', args=(self.slug,))
 
     def __str__(self):
         return self.headline

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import BlogEntry, MarketingElement
 
 # Create your views here.
@@ -18,3 +18,7 @@ def marketing_detail(request, slug):
             'marketing_detail.html',
             { 'element': element }
         )
+
+
+def neue_medien_blog_redirect(request):
+    return redirect('http://neuemedien.werthschulte.info')

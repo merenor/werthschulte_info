@@ -18,6 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.flatpages import views as flatpage_views
 from blog import views as blog_views
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import FlatPageSitemap, MarketingElementSitemap
+
+
+sitemaps = {
+    'flatpages': FlatPageSitemap,
+    'marketingelements': MarketingElementSitemap,
+}
 
 
 urlpatterns = [
@@ -36,10 +44,19 @@ urlpatterns = [
     url(r'^pgp-key/$', flatpage_views.flatpage, {'url': '/pgp-key/'},
         name='pgp-key'),
 
+    # Neue-Medien-Blog
+    url(r'^neuemedien/$', blog_views.neue_medien_blog_redirect,
+        name='neue-medien-blog-redirect'),
+
     # Marketing-Elements
     url(r'^(?P<slug>[\w\-]+)/$', blog_views.marketing_detail,
         name='marketing_slug_detail'),
 
+
+    # Sitemap for Google
+    url(r'^sitemap\.xml$', sitemap,
+        {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
 
     # Index
     url(r'^$', blog_views.index)
