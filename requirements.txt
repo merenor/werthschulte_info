@@ -1,4 +1,4 @@
-Django==1.8.19
+Django==1.11.29
 django-summernote==0.8.8.7
 mysqlclient==1.3.13
 Pillow==5.2.0
